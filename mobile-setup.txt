@@ -1,0 +1,33 @@
+MOBILE SETUP GUIDE - HTTPS Required for Sensors
+================================================
+
+PROBLEM: HTTP doesn't allow sensor access on mobile browsers.
+SOLUTION: Use one of these methods:
+
+METHOD 1: Using ngrok (Recommended - Easiest)
+----------------------------------------------
+1. Download ngrok: https://ngrok.com/download
+2. Extract to any folder
+3. Open Command Prompt in that folder
+4. Run: ngrok http 80
+5. Copy the HTTPS URL (like: https://abc123.ngrok.io)
+6. Open that URL on your mobile + add /VAD/
+   Example: https://abc123.ngrok.io/VAD/
+
+METHOD 2: Using localhost on Android Chrome
+--------------------------------------------
+1. Use USB cable to connect phone to PC
+2. Enable USB Debugging on Android
+3. Open Chrome on PC: chrome://inspect
+4. Click "Port forwarding"
+5. Add: Port 80 -> localhost:80
+6. On phone, open: http://localhost/VAD/
+   (localhost is treated as secure origin)
+
+METHOD 3: Self-signed Certificate (Advanced)
+---------------------------------------------
+Run setup-https.bat as administrator
+Then access: https://172.3.4.18/VAD/
+(You'll need to accept the security warning)
+
+RECOMMENDED: Use Method 1 (ngrok) for quickest setup!
